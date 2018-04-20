@@ -3,33 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>jdongdong.github.io/first/</loc>
+    <loc>https://jdongdong.github.io/first/</loc>
     <lastmod>2018-04-20T16:46:37+08:00</lastmod>
   </url>
   
   <url>
-    <loc>jdongdong.github.io/about/</loc>
+    <loc>https://jdongdong.github.io/about/</loc>
     <lastmod>2018-04-20T16:42:38+08:00</lastmod>
   </url>
   
   <url>
-    <loc>jdongdong.github.io/categories/</loc>
+    <loc>https://jdongdong.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>jdongdong.github.io/post/</loc>
+    <loc>https://jdongdong.github.io/post/</loc>
     <lastmod>2018-04-20T16:46:37+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>jdongdong.github.io/tags/</loc>
+    <loc>https://jdongdong.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>jdongdong.github.io/</loc>
+    <loc>https://jdongdong.github.io/</loc>
     <lastmod>2018-04-20T16:46:37+08:00</lastmod>
     <priority>0</priority>
   </url>
