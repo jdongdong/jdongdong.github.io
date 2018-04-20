@@ -17,7 +17,7 @@
       <pubDate>Fri, 20 Apr 2018 17:45:14 +0800</pubDate>
       
       <guid>https://jdongdong.github.io/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description> 新建git仓库 git init git remote add origin https://github.com/username/xxx.git git add -A git commit -m &amp;#34;注释内容&amp;#34; git push -u origin master 更新操作 git pull origin master git push -u origin master</description>
+      <description> 新建git仓库 git init git remote add origin https://github.com/username/xxx.git git add -A git commit -m &amp;#34;注释内容&amp;#34; git push -u origin master 更新操作 git pull origin master</description>
     </item>
     
   </channel>
