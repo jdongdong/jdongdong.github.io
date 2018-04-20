@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Supervisor - 个人博客</title>
+<meta property="og:title" content="Supervisor - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Supervisor</h1>
+    
+    <span class="article-date">2017-11-13</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="安装">安装</h2>
+
+<ul>
+<li>yum install python-setuptools</li>
+<li>easy_install supervisor</li>
+</ul>
+
+<h2 id="配置">配置</h2>
+
+<ul>
+<li>mkdir /etc/supervisor</li>
+<li>echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf</li>
+<li>修改supervisord.conf文件，将文件尾部的配置
+<code>ini
+[include]
+files = conf.d/*.conf
+</code></li>
+<li>打开web访问
+<code>ini
+[inet_http_server]         ; inet (TCP) server disabled by default
+port=*:9001        ; ip_address:port specifier, *:port for all iface
+username=admin              ; default is no username (open server)
+password=xxxxx               ; default is no password (open server)
+</code></li>
+</ul>
+
+<h3 id="配置运行程序">配置运行程序</h3>
+
+<ul>
+<li>在conf.d文件夹下创建xx.conf
+<code>ini
+[program:WebApplication1]
+command=dotnet WebApplication1.dll ; 运行程序的命令
+directory=/home/wwwroot/WebApplication1/ ; 命令执行的目录
+autorestart=true ; 程序意外退出是否自动重启
+stderr_logfile=/var/log/WebApplication1.err.log ; 错误日志文件
+stdout_logfile=/var/log/WebApplication1.out.log ; 输出日志文件
+environment=ASPNETCORE_ENVIRONMENT=Production ; 进程环境变量
+user=root ; 进程执行的用户身份
+stopsignal=INT
+</code></li>
+</ul>
+
+<h3 id="启动">启动</h3>
+
+<ul>
+<li><p>进入/usr/lib/systemd/system/目录，创建supervisord.service</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#999;font-style:italic"># supervisord service for systemd (CentOS 7.0+)</span>
+<span style="color:#999;font-style:italic"># by ET-CS (https://github.com/ET-CS)</span>
+<span style="color:#6ab825;font-weight:bold">[Unit]</span>
+<span style="color:#bbb">Description</span>=<span style="color:#ed9d13">Supervisor daemon</span>
+<span style="color:#6ab825;font-weight:bold">[Service]</span>
+<span style="color:#bbb">Type</span>=<span style="color:#ed9d13">forking</span>
+<span style="color:#bbb">ExecStart</span>=<span style="color:#ed9d13">/usr/bin/supervisord -c /etc/supervisor/supervisord.conf</span>
+<span style="color:#bbb">ExecStop</span>=<span style="color:#ed9d13">/usr/bin/supervisorctl $OPTIONS shutdown</span>
+<span style="color:#bbb">ExecReload</span>=<span style="color:#ed9d13">/usr/bin/supervisorctl $OPTIONS reload</span>
+<span style="color:#bbb">KillMode</span>=<span style="color:#ed9d13">process</span>
+<span style="color:#bbb">Restart</span>=<span style="color:#ed9d13">on-failure</span>
+<span style="color:#bbb">RestartSec</span>=<span style="color:#ed9d13">42s</span>
+<span style="color:#6ab825;font-weight:bold">[Install]</span>
+<span style="color:#bbb">WantedBy</span>=<span style="color:#ed9d13">multi-user.target</span></code></pre></div></li>
+
+<li><p>开机自启动:systemctl enable supervisord.service</p></li>
+
+<li><p>systemctl start/stop/reload supervisord.service</p></li>
+</ul>
+
+<h3 id="错误处理">错误处理</h3>
+
+<p>supervisor错误解决：sudo unlink /tmp/supervisor.sock</p>
+
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

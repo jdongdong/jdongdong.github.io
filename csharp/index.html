@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Csharp - 个人博客</title>
+<meta property="og:title" content="Csharp - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Csharp</h1>
+    
+    <span class="article-date">2017-11-25</span>
+    
+
+    <div class="article-content">
+      <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">常用验证</span>
+<span style="color:#bbb">using System.Text.RegularExpressions;</span>
+<span style="color:#bbb">/// &lt;summary&gt;</span>
+<span style="color:#bbb">/// 验证手机号</span>
+<span style="color:#bbb">/// &lt;/summary&gt;</span>
+<span style="color:#bbb">/// &lt;param name</span>=<span style="color:#ed9d13">&#34;s&#34;&gt;&lt;/param&gt;</span>
+<span style="color:#bbb">/// &lt;returns&gt;&lt;/returns&gt;</span>
+<span style="color:#bbb">public static bool IsMobile(string s)</span>
+<span style="color:#bbb">{</span>
+    <span style="color:#bbb">return Regex.IsMatch(s, @&#34;^1[3578]\d{9}$&#34;);</span>
+<span style="color:#bbb">}</span>
+<span style="color:#bbb">/// &lt;summary&gt;</span>
+<span style="color:#bbb">/// 验证邮箱</span>
+<span style="color:#bbb">/// &lt;/summary&gt;</span>
+<span style="color:#bbb">/// &lt;param name</span>=<span style="color:#ed9d13">&#34;s&#34;&gt;&lt;/param&gt;</span>
+<span style="color:#bbb">/// &lt;returns&gt;&lt;/returns&gt;</span>
+<span style="color:#bbb">public static bool IsEmail(string s)</span>
+<span style="color:#bbb">{</span>
+    <span style="color:#bbb">String strExp</span> = <span style="color:#ed9d13">@&#34;\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*&#34;;
+</span><span style="color:#ed9d13">    Regex r = new Regex(strExp);
+</span><span style="color:#ed9d13">    Match m = r.Match(s);
+</span><span style="color:#ed9d13">    return m.Success;</span>
+<span style="color:#bbb">}</span>
+<span style="color:#bbb">/// &lt;summary&gt;</span>
+<span style="color:#bbb">/// 验证电话号码</span>
+<span style="color:#bbb">/// &lt;/summary&gt;</span>
+<span style="color:#bbb">/// &lt;param name</span>=<span style="color:#ed9d13">&#34;s&#34;&gt;&lt;/param&gt;</span>
+<span style="color:#bbb">/// &lt;returns&gt;&lt;/returns&gt;</span>
+<span style="color:#bbb">public static bool IsTelphone(string s)</span>
+<span style="color:#bbb">{</span>
+    <span style="color:#bbb">return Regex.IsMatch(s, @&#34;^(\d{3,4}-)?\d{6,8}$&#34;);</span>
+<span style="color:#bbb">}</span>
+<span style="color:#bbb">/// &lt;summary&gt;</span>
+<span style="color:#bbb">/// 验证字母或数字</span>
+<span style="color:#bbb">/// &lt;/summary&gt;</span>
+<span style="color:#bbb">/// &lt;param name</span>=<span style="color:#ed9d13">&#34;s&#34;&gt;&lt;/param&gt;</span>
+<span style="color:#bbb">/// &lt;returns&gt;&lt;/returns&gt;</span>
+<span style="color:#bbb">public static bool IsLetterOrNumber(string s)</span>
+<span style="color:#bbb">{</span>
+    <span style="color:#bbb">return Regex.IsMatch(s, &#34;^[A-Za-z0-9]*$&#34;);</span>
+<span style="color:#bbb">}</span>
+<span style="color:#bbb">/// </span>
+<span style="color:#bbb">/// 验证是否包含特殊字符</span>
+<span style="color:#bbb">/// </span>
+<span style="color:#bbb">/// </span>
+<span style="color:#bbb">/// </span>
+<span style="color:#bbb">public static bool HasSpecChar(string s)</span>
+<span style="color:#bbb">{</span>
+<span style="color:#bbb">return Regex.IsMatch(s, &#34;[`~!@#$^&amp;amp;*()</span>=<span style="color:#ed9d13">|{}&#39;:;&#39;,\\[\\]./?~！@#￥……&amp;amp;*（）——|{}【】‘；：”“&#39;。，、？]+&#34;);</span>
+<span style="color:#bbb">}</span></code></pre></div>
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Nginx - 个人博客</title>
+<meta property="og:title" content="Nginx - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Nginx</h1>
+    
+    <span class="article-date">2017-11-13</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="centos安装">CentOS安装</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#3677a9">1</span><span style="color:#a61717;background-color:#e3d2d2">.下载nginx包</span>
+<span style="color:#3677a9">2</span><span style="color:#a61717;background-color:#e3d2d2">.wget</span>  <span style="color:#a61717;background-color:#e3d2d2">http://nginx.org/packages/centos/</span><span style="color:#3677a9">7</span><span style="color:#a61717;background-color:#e3d2d2">/noarch/RPMS/nginx-release-centos</span><span style="color:#3677a9">-7-0</span><span style="color:#a61717;background-color:#e3d2d2">.el</span><span style="color:#3677a9">7</span><span style="color:#a61717;background-color:#e3d2d2">.ngx.noarch.rpm</span>
+<span style="color:#3677a9">3</span><span style="color:#a61717;background-color:#e3d2d2">.建立nginx的yum仓库</span>
+<span style="color:#3677a9">4</span><span style="color:#a61717;background-color:#e3d2d2">.rpm</span> <span style="color:#a61717;background-color:#e3d2d2">-ivh</span> <span style="color:#a61717;background-color:#e3d2d2">nginx-release-centos</span><span style="color:#3677a9">-7-0</span><span style="color:#a61717;background-color:#e3d2d2">.el</span><span style="color:#3677a9">7</span><span style="color:#a61717;background-color:#e3d2d2">.ngx.noarch.rpm</span>
+<span style="color:#3677a9">5</span><span style="color:#a61717;background-color:#e3d2d2">.yum</span> <span style="color:#a61717;background-color:#e3d2d2">install</span> <span style="color:#a61717;background-color:#e3d2d2">nginx</span>
+<span style="color:#3677a9">6</span><span style="color:#a61717;background-color:#e3d2d2">.启动：systemctl</span> <span style="color:#a61717;background-color:#e3d2d2">start</span> <span style="color:#a61717;background-color:#e3d2d2">nginx</span>
+<span style="color:#3677a9">7</span><span style="color:#a61717;background-color:#e3d2d2">.设置开机自启动：systemctl</span> <span style="color:#a61717;background-color:#e3d2d2">enable</span> <span style="color:#a61717;background-color:#e3d2d2">nginx.service</span></code></pre></div>
+<h2 id="静态文件服务器">静态文件服务器</h2>
+
+<ul>
+<li>打开/etc/nginx/conf.d中配置文件
+<code>json
+location / {
+    root   /goapp/myBlog;
+    index  index.html index.htm;
+}
+</code></li>
+<li>修改root指向静态文件</li>
+</ul>
+
+<h2 id="常用命令">常用命令</h2>
+
+<ul>
+<li>systemctl start nginx.service</li>
+<li>systemctl stop nginx.service</li>
+</ul>
+
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

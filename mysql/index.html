@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Mysql - 个人博客</title>
+<meta property="og:title" content="Mysql - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Mysql</h1>
+    
+    <span class="article-date">2017-11-13</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="mysql安装">Mysql安装</h2>
+
+<ul>
+<li>yum repository地址：<a href="http://dev.mysql.com/downloads/repo/yum/">http://dev.mysql.com/downloads/repo/yum/</a></li>
+<li>查看最新rpm Package（mysql57-community-release-el7-11.noarch.rpm）</li>
+<li>wget <a href="http://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm">http://repo.mysql.com/mysql57-community-release-el7-11.noarch.rpm</a></li>
+<li>rpm -ivh mysql57-community-release-el7-11.noarch.rpm</li>
+<li>yum install mysql-community-server</li>
+</ul>
+
+<h2 id="mysql配置">Mysql配置</h2>
+
+<h3 id="启动">启动</h3>
+
+<ul>
+<li>开机自启动:systemctl enable mysqld</li>
+<li>启动:systemctl start mysqld</li>
+</ul>
+
+<h3 id="密码配置-开放远程连接">密码配置&amp;&amp;开放远程连接</h3>
+
+<ul>
+<li>查询自动生成的随机密码：sudo grep &lsquo;temporary password&rsquo; /var/log/mysqld.log</li>
+<li>mysql -uroot -p</li>
+<li>ALTER USER &lsquo;root&rsquo;@&lsquo;localhost&rsquo; IDENTIFIED BY &lsquo;新密码&rsquo;;新密码必须包含大写、小写字母、数据、特殊字符，大于八位</li>
+<li>GRANT ALL PRIVILEGES ON <em>.</em> TO &lsquo;root&rsquo;@&lsquo;%&rsquo; IDENTIFIED BY &lsquo;密码&rsquo; WITH GRANT OPTION;</li>
+<li>FLUSH   PRIVILEGES;</li>
+<li>exit</li>
+</ul>
+
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

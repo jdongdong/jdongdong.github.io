@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Svn - 个人博客</title>
+<meta property="og:title" content="Svn - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Svn</h1>
+    
+    <span class="article-date">2017-11-25</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="参考链接">参考链接</h2>
+
+<p><a href="https://www.if-not-true-then-false.com/2012/svn-subversion-backup-and-restore/">https://www.if-not-true-then-false.com/2012/svn-subversion-backup-and-restore/</a></p>
+
+<h2 id="安装配置">安装配置</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">1.yum install subversion</span>
+<span style="color:#bbb">2.查看版本svnserve –-version</span>
+<span style="color:#bbb">3.创建SVN版本库目录 mkdir -p /var/svn/svnrepos</span>
+<span style="color:#bbb">4.创建版本库 svnadmin create /var/svn/svnrepos</span>
+<span style="color:#bbb">5.进入conf目录（该svn版本库配置文件）cd conf/</span>
+<span style="color:#bbb">authz文件是权限控制文件</span>
+<span style="color:#bbb">passwd是帐号密码文件</span>
+<span style="color:#bbb">svnserve.conf SVN服务配置文件</span>
+<span style="color:#bbb">6.设置帐号密码 vi passwd</span>
+<span style="color:#bbb">在[users]块中添加用户和密码，格式：帐号</span>=<span style="color:#ed9d13">密码，如quwenzhe=123456</span>
+<span style="color:#bbb">7.设置权限 vi authz</span>
+<span style="color:#bbb">在末尾添加如下代码：</span>
+<span style="color:#bbb">[html] view plaincopy</span>
+<span style="color:#6ab825;font-weight:bold">[/]</span>
+<span style="color:#bbb">quwenzhe</span>=<span style="color:#ed9d13">rw</span>
+<span style="color:#bbb">意思是版本库的根目录quwenzhe对其有读写权限</span>
+<span style="color:#bbb">8.修改svnserve.conf文件 vi svnserve.conf</span>
+<span style="color:#bbb">打开下面的几个注释：</span>
+<span style="color:#bbb">anon-access</span> = <span style="color:#ed9d13">read #匿名用户可读</span>
+<span style="color:#bbb">auth-access</span> = <span style="color:#ed9d13">write #授权用户可写</span>
+<span style="color:#bbb">password-db</span> = <span style="color:#ed9d13">passwd #使用哪个文件作为账号文件</span>
+<span style="color:#bbb">authz-db</span> = <span style="color:#ed9d13">authz #使用哪个文件作为权限文件</span>
+<span style="color:#bbb">realm</span> = <span style="color:#ed9d13">/var/svn/svnrepos # 认证空间名，版本库所在目录</span>
+<span style="color:#bbb">9.启动svn版本库 svnserve -d -r /var/svn/svnrepos（停止SVN命令 killall svnserve）</span>
+<span style="color:#bbb">10.svn地址：svn://xxx.xxx.xxx.xxx/svnrepos</span></code></pre></div>
+<h2 id="开机自启">开机自启</h2>
+
+<p>在/usr/lib/systemd/system/添加svnserve.service文件，文件内容如下：</p>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#6ab825;font-weight:bold">[Unit]</span>
+<span style="color:#bbb">Description</span>=<span style="color:#ed9d13">Subversion protocol daemon</span>
+<span style="color:#bbb">After</span>=<span style="color:#ed9d13">syslog.target network.target</span>
+<span style="color:#6ab825;font-weight:bold">[Service]</span>
+<span style="color:#bbb">Type</span>=<span style="color:#ed9d13">forking</span>
+<span style="color:#bbb">EnvironmentFile</span>=<span style="color:#ed9d13">/etc/sysconfig/svnserve</span>
+<span style="color:#bbb">ExecStart</span>=<span style="color:#ed9d13">/usr/bin/svnserve --daemon --pid-file=/run/svnserve/svnserve.pid -d -r /home/svn  #一定要写svnserve命令的绝对路径</span>
+<span style="color:#6ab825;font-weight:bold">[Install]</span>
+<span style="color:#bbb">WantedBy</span>=<span style="color:#ed9d13">multi-user.target</span></code></pre></div>
+<p>systemctl enable svnserve.service</p>
+
+<h2 id="svn备份及恢复">svn备份及恢复</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">1.svnadmin dump /var/svn/svnrepos(仓库路径) &gt; dumpfile（保存在当前命令运行路径）</span>
+<span style="color:#bbb">2.svnadmin load 新建的repos的目录路径（/repository/directory） &lt; dumpfile（保存在当前命令运行路径）</span></code></pre></div>
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Linux - 个人博客</title>
+<meta property="og:title" content="Linux - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Linux</h1>
+    
+    <span class="article-date">2017-11-25</span>
+    
+
+    <div class="article-content">
+      
+
+<h2 id="linux权限">Linux权限</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">// 为所有者、所属组和其他用户添加执行的权限</span>
+<span style="color:#bbb">chmod +x 文件路径</span>
+<span style="color:#bbb">// 为所有者、所属组和其他用户删除执行的权限</span>
+<span style="color:#bbb">chmod -x 文件路径</span>
+
+<span style="color:#bbb">// 为所有者添加执行的权限</span>
+<span style="color:#bbb">chmod u+x 文件路径</span>
+<span style="color:#bbb">// 为所属组添加执行的权限</span>
+<span style="color:#bbb">chmod g+x 文件路径</span>
+<span style="color:#bbb">// 为其他用户添加执行的权限</span>
+<span style="color:#bbb">chmod o+x 文件路径</span>
+<span style="color:#bbb">// 为所有者、所属组添加执行的权限</span>
+<span style="color:#bbb">chmod ug+x 文件路径</span>
+
+<span style="color:#bbb">// 为所有者、所属组和其他用户添加写、执行的权限，取消读权限</span>
+<span style="color:#bbb">chmod</span> =<span style="color:#ed9d13">wx 文件路径</span>
+<span style="color:#bbb">// 为所有者、所属组添加写、执行的权限，取消读权限</span>
+<span style="color:#bbb">chmod ug</span>=<span style="color:#ed9d13">wx 文件路径</span></code></pre></div>
+<h2 id="常用命令">常用命令</h2>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">文件解压到指定目录：tar -zxvf xxx.tar.gz -C /tmp/</span>
+<span style="color:#bbb">查找进程：ps -ef|grep XXX</span>
+<span style="color:#bbb">内存使用查看：free -m</span>
+<span style="color:#bbb">程序内存占用：ps -aux | sort -k4nr | head 5</span>
+<span style="color:#bbb">查看程序端口占用：netstat -nap | grep pid</span>
+<span style="color:#bbb">df -lh</span></code></pre></div>
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+

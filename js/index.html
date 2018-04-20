@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.39" />
+
+
+<title>Js - 个人博客</title>
+<meta property="og:title" content="Js - 个人博客">
+
+
+
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="https://jdongdong.github.io/css/main.css" media="all">
+<link rel="stylesheet" href="https://jdongdong.github.io/css/fonts.css">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="https://jdongdong.github.io/" class="nav-logo">
+    <img src="https://jdongdong.github.io/images/logo.png" 
+         width="50" 
+         height="50" 
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/categories">Categories</a></li>
+    
+    <li><a href="/tags">Tags</a></li>
+    
+    <li><a href="/about/">About</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+  <article class="article">
+    <h1 class="article-title">Js</h1>
+    
+    <span class="article-date">2017-11-25</span>
+    
+
+    <div class="article-content">
+      <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">数字验证
+<span style="color:#6ab825;font-weight:bold">function</span> checknum(obj) {
+    <span style="color:#6ab825;font-weight:bold">return</span> !<span style="color:#24909d">isNaN</span>(obj)
+}
+<span style="color:#6ab825;font-weight:bold">function</span> checknum(obj) {
+    <span style="color:#6ab825;font-weight:bold">return</span> <span style="color:#ed9d13">/^[0-9]*$/</span>.test(obj)
+}
+验证数字的正则表达式集
+验证数字<span style="color:#a61717;background-color:#e3d2d2">：</span>^[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]$
+验证n位的数字<span style="color:#a61717;background-color:#e3d2d2">：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>d{n}$
+验证至少n位数字<span style="color:#a61717;background-color:#e3d2d2">：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>d{n,}$
+验证m-n位的数字<span style="color:#a61717;background-color:#e3d2d2">：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>d{m,n}$
+验证零和非零开头的数字<span style="color:#a61717;background-color:#e3d2d2">：</span>^(<span style="color:#3677a9">0</span>|[<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>])$
+验证有两位小数的正实数<span style="color:#a61717;background-color:#e3d2d2">：</span>^[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+(.[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]{<span style="color:#3677a9">2</span>})?$
+验证有1-<span style="color:#3677a9">3</span>位小数的正实数<span style="color:#a61717;background-color:#e3d2d2">：</span>^[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+(.[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]{<span style="color:#3677a9">1</span>,<span style="color:#3677a9">3</span>})?$
+验证非零的正整数<span style="color:#a61717;background-color:#e3d2d2">：</span>^+?[<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]$
+验证非零的负整数<span style="color:#a61717;background-color:#e3d2d2">：</span>^-[<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]$
+验证非负整数<span style="color:#a61717;background-color:#e3d2d2">（</span>正整数 + <span style="color:#3677a9">0</span><span style="color:#a61717;background-color:#e3d2d2">）</span> ^<span style="color:#a61717;background-color:#e3d2d2">\</span>d+$
+验证非正整数<span style="color:#a61717;background-color:#e3d2d2">（</span>负整数 + <span style="color:#3677a9">0</span><span style="color:#a61717;background-color:#e3d2d2">）</span> ^((-<span style="color:#a61717;background-color:#e3d2d2">\</span>d+)|(<span style="color:#3677a9">0</span>+))$
+验证长度为3的字符<span style="color:#a61717;background-color:#e3d2d2">：</span>^.{<span style="color:#3677a9">3</span>}$
+验证由26个英文字母组成的字符串<span style="color:#a61717;background-color:#e3d2d2">：</span>^[A-Za-z]+$
+验证由26个大写英文字母组成的字符串<span style="color:#a61717;background-color:#e3d2d2">：</span>^[A-Z]+$
+验证由26个小写英文字母组成的字符串<span style="color:#a61717;background-color:#e3d2d2">：</span>^[a-z]+$
+验证由数字和26个英文字母组成的字符串<span style="color:#a61717;background-color:#e3d2d2">：</span>^[A-Za-z0-<span style="color:#3677a9">9</span>]+$
+验证由数字<span style="color:#a61717;background-color:#e3d2d2">、</span><span style="color:#3677a9">26</span>个英文字母或者下划线组成的字符串<span style="color:#a61717;background-color:#e3d2d2">：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>w+$
+验证用户密码:^[a-zA-Z]<span style="color:#a61717;background-color:#e3d2d2">\</span>w{<span style="color:#3677a9">5</span>,<span style="color:#3677a9">17</span>}$ 正确格式为<span style="color:#a61717;background-color:#e3d2d2">：</span>以字母开头<span style="color:#a61717;background-color:#e3d2d2">，</span>长度在6-<span style="color:#3677a9">18</span>之间<span style="color:#a61717;background-color:#e3d2d2">，</span>只能包含字符<span style="color:#a61717;background-color:#e3d2d2">、</span>数字和下划线<span style="color:#a61717;background-color:#e3d2d2">。</span>
+验证是否含有 ^%&amp;<span style="color:#a61717;background-color:#e3d2d2">’</span>,;=?$<span style="color:#a61717;background-color:#e3d2d2">\”</span> 等字符<span style="color:#a61717;background-color:#e3d2d2">：</span>[^%&amp;<span style="color:#a61717;background-color:#e3d2d2">’</span>,;=?$<span style="color:#a61717;background-color:#e3d2d2">\</span>x22]+
+验证汉字<span style="color:#a61717;background-color:#e3d2d2">：</span>^[\u4e00-\u9fa5],{<span style="color:#3677a9">0</span>,}$
+验证Email地址<span style="color:#a61717;background-color:#e3d2d2">：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>w+[-+.]<span style="color:#a61717;background-color:#e3d2d2">\</span>w+)<span style="color:#a61717;background-color:#e3d2d2">@\</span>w+([-.]<span style="color:#a61717;background-color:#e3d2d2">\</span>w+).<span style="color:#a61717;background-color:#e3d2d2">\</span>w+([-.]<span style="color:#a61717;background-color:#e3d2d2">\</span>w+)$
+验证InternetURL<span style="color:#a61717;background-color:#e3d2d2">：</span>^http:<span style="color:#999;font-style:italic">//([\w-]+.)+[\w-]+(/[\w-./?%&amp;=])?$ ；^[a-zA-z]+://(w+(-w+))(.(w+(-w+)))(?S)?$
+</span><span style="color:#999;font-style:italic"></span>验证电话号码<span style="color:#a61717;background-color:#e3d2d2">：</span>^((<span style="color:#a61717;background-color:#e3d2d2">\</span>d{<span style="color:#3677a9">3</span>,<span style="color:#3677a9">4</span>})|<span style="color:#a61717;background-color:#e3d2d2">\</span>d{<span style="color:#3677a9">3</span>,<span style="color:#3677a9">4</span>}-)?<span style="color:#a61717;background-color:#e3d2d2">\</span>d{<span style="color:#3677a9">7</span>,<span style="color:#3677a9">8</span>}$<span style="color:#a61717;background-color:#e3d2d2">：–</span>正确格式为<span style="color:#a61717;background-color:#e3d2d2">：</span>XXXX-XXXXXXX<span style="color:#a61717;background-color:#e3d2d2">，</span>XXXX-XXXXXXXX<span style="color:#a61717;background-color:#e3d2d2">，</span>XXX-XXXXXXX<span style="color:#a61717;background-color:#e3d2d2">，</span>XXX-XXXXXXXX<span style="color:#a61717;background-color:#e3d2d2">，</span>XXXXXXX<span style="color:#a61717;background-color:#e3d2d2">，</span>XXXXXXXX<span style="color:#a61717;background-color:#e3d2d2">。</span>
+验证身份证号<span style="color:#a61717;background-color:#e3d2d2">（</span><span style="color:#3677a9">15</span>位或18位数字<span style="color:#a61717;background-color:#e3d2d2">）：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>d{<span style="color:#3677a9">15</span>}|<span style="color:#a61717;background-color:#e3d2d2">\</span>d{}<span style="color:#3677a9">18</span>$
+验证一年的12个月<span style="color:#a61717;background-color:#e3d2d2">：</span>^(<span style="color:#3677a9">0</span>?[<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>]|<span style="color:#3677a9">1</span>[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">2</span>])$ 正确格式为<span style="color:#a61717;background-color:#e3d2d2">：“</span><span style="color:#3677a9">01</span><span style="color:#a61717;background-color:#e3d2d2">”</span>-<span style="color:#a61717;background-color:#e3d2d2">“</span><span style="color:#3677a9">09</span><span style="color:#a61717;background-color:#e3d2d2">”</span>和<span style="color:#a61717;background-color:#e3d2d2">“</span><span style="color:#3677a9">1</span><span style="color:#a61717;background-color:#e3d2d2">”“</span><span style="color:#3677a9">12</span><span style="color:#a61717;background-color:#e3d2d2">”</span>
+验证一个月的31天<span style="color:#a61717;background-color:#e3d2d2">：</span>^((<span style="color:#3677a9">0</span>?[<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>])|((<span style="color:#3677a9">1</span>|<span style="color:#3677a9">2</span>)[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>])|<span style="color:#3677a9">30</span>|<span style="color:#3677a9">31</span>)$ 正确格式为<span style="color:#a61717;background-color:#e3d2d2">：</span><span style="color:#3677a9">01</span><span style="color:#a61717;background-color:#e3d2d2">、</span><span style="color:#3677a9">09</span>和1<span style="color:#a61717;background-color:#e3d2d2">、</span><span style="color:#3677a9">31</span><span style="color:#a61717;background-color:#e3d2d2">。</span>
+整数<span style="color:#a61717;background-color:#e3d2d2">：</span>^-?<span style="color:#a61717;background-color:#e3d2d2">\</span>d+$
+非负浮点数<span style="color:#a61717;background-color:#e3d2d2">（</span>正浮点数 + <span style="color:#3677a9">0</span><span style="color:#a61717;background-color:#e3d2d2">）：</span>^<span style="color:#a61717;background-color:#e3d2d2">\</span>d+(.<span style="color:#a61717;background-color:#e3d2d2">\</span>d+)?$
+正浮点数 ^(([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+.[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>])|([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>].[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+)|([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]))$
+非正浮点数<span style="color:#a61717;background-color:#e3d2d2">（</span>负浮点数 + <span style="color:#3677a9">0</span><span style="color:#a61717;background-color:#e3d2d2">）</span> ^((-<span style="color:#a61717;background-color:#e3d2d2">\</span>d+(.<span style="color:#a61717;background-color:#e3d2d2">\</span>d+)?)|(<span style="color:#3677a9">0</span>+(<span style="color:#3677a9">.0</span>+)?))$
+负浮点数 ^(-(([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+.[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>])|([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>].[<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>]+)|([<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">1</span>-<span style="color:#3677a9">9</span>][<span style="color:#3677a9">0</span>-<span style="color:#3677a9">9</span>])))$
+浮点数 ^(-?<span style="color:#a61717;background-color:#e3d2d2">\</span>d+)(.<span style="color:#a61717;background-color:#e3d2d2">\</span>d+)?$
+</code></pre></div>
+    </div>
+ 
+    <ul class="article-taxonomy">
+      
+    
+      
+  </article>
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="https://jdongdong.github.io/index.xml" type="application/rss+xml" target="_blank"><i class="fa fa-rss"></i> RSS feed</a>
+          </li>
+          <li>
+            <a href="https://github.com/mobybit/hugo-natrium-theme"><i class="fa fa-github"></i> Code</a>
+          </li>
+          <li>
+            <a href="https://jdongdong.github.io/site-notice">Site notice</a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+
+  </body>
+</html>
+
