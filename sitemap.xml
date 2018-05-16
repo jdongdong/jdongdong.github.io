@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://jdongdong.github.io/asp.net-core/</loc>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jdongdong.github.io/ide/</loc>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jdongdong.github.io/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2018-04-20T17:45:14+08:00</lastmod>
   </url>
@@ -73,6 +83,12 @@
   </url>
   
   <url>
+    <loc>https://jdongdong.github.io/tags/asp.net-core/</loc>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jdongdong.github.io/categories/</loc>
     <priority>0</priority>
   </url>
@@ -84,20 +100,26 @@
   </url>
   
   <url>
+    <loc>https://jdongdong.github.io/tags/ide/</loc>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://jdongdong.github.io/post/</loc>
-    <lastmod>2018-04-20T17:45:14+08:00</lastmod>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jdongdong.github.io/tags/</loc>
-    <lastmod>2018-04-20T17:45:14+08:00</lastmod>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://jdongdong.github.io/</loc>
-    <lastmod>2018-04-20T17:45:14+08:00</lastmod>
+    <lastmod>2018-05-10T14:02:47+08:00</lastmod>
     <priority>0</priority>
   </url>
   

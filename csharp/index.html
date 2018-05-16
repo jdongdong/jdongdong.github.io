@@ -55,7 +55,9 @@
     
 
     <div class="article-content">
-      <div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">常用验证</span>
+      
+
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ini" data-lang="ini"><span style="color:#bbb">常用验证</span>
 <span style="color:#bbb">using System.Text.RegularExpressions;</span>
 <span style="color:#bbb">/// &lt;summary&gt;</span>
 <span style="color:#bbb">/// 验证手机号</span>
@@ -105,6 +107,12 @@
 <span style="color:#bbb">{</span>
 <span style="color:#bbb">return Regex.IsMatch(s, &#34;[`~!@#$^&amp;amp;*()</span>=<span style="color:#ed9d13">|{}&#39;:;&#39;,\\[\\]./?~！@#￥……&amp;amp;*（）——|{}【】‘；：”“&#39;。，、？]+&#34;);</span>
 <span style="color:#bbb">}</span></code></pre></div>
+<h2 id="基础语法">基础语法</h2>
+
+<h3 id="数组初始化">数组初始化</h3>
+<div class="highlight"><pre style="color:#d0d0d0;background-color:#202020;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#6ab825;font-weight:bold">int</span><span style="color:#bbb">[]</span> num1 = {<span style="color:#3677a9">1</span>,<span style="color:#3677a9">2</span>,<span style="color:#3677a9">3</span>,<span style="color:#3677a9">4</span>,<span style="color:#3677a9">5</span>}; <span style="color:#999;font-style:italic">// 不能使用var关键字创建
+</span><span style="color:#999;font-style:italic"></span><span style="color:#6ab825;font-weight:bold">int</span><span style="color:#bbb">[]</span> num2 = <span style="color:#6ab825;font-weight:bold">new</span> <span style="color:#6ab825;font-weight:bold">int</span><span style="color:#bbb">[5]</span>;
+<span style="color:#6ab825;font-weight:bold">int</span><span style="color:#bbb">[]</span> num3 = <span style="color:#6ab825;font-weight:bold">new</span> <span style="color:#6ab825;font-weight:bold">int</span><span style="color:#bbb">[]</span> {<span style="color:#3677a9">1</span>,<span style="color:#3677a9">2</span>,<span style="color:#3677a9">3</span>,<span style="color:#3677a9">4</span>,<span style="color:#3677a9">5</span>};</code></pre></div>
     </div>
  
     <ul class="article-taxonomy">
